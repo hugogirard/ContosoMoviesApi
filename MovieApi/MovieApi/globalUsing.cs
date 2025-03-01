@@ -1,0 +1,1 @@
+﻿global using Movies.Application;
