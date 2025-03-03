@@ -26,4 +26,23 @@ public static class ContractMapping
             YearOfRelease = movie.YearOfRelease
         };
     }
+
+    public static MoviesResponse MapToResponse(this IEnumerable<Movie> movies)
+    {
+        return new MoviesResponse
+        {
+            Items = movies.Select(m => m.MapToResponse()).ToList()
+        };
+    }
+
+    public static Movie MapToMovie(this UpdateMovieRequest request, Guid id)
+    {
+        return new Movie
+        {            
+            Id = id,
+            Title = request.Title,
+            Genres = request.Genres.ToList(),
+            YearOfRelease = request.YearOfRelease,
+        };
+    }
 }
