@@ -21,6 +21,7 @@ public static class ContractMapping
         return new MovieResponse
         {
             Id = movie.Id,
+            Slug = movie.Slug,
             Title = movie.Title,
             Genres = movie.Genres,
             YearOfRelease = movie.YearOfRelease
